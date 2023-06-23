@@ -48,41 +48,19 @@ print(min(dictel))
 # введенного пользователем слова. Будем считать, что на вход подается только одно слово, 
 # которое содержит либо только английские, либо только русские буквы.
 
-dict2 = {"A, E, I, O, U, L, N, S, T, R" :1, 
-         "D, G," :2, 
-         "B, C, M, P" :3, 
-         "F, H, V, W, Y" :4,
-         "K" :5,
-         "J, X" :8,
-         "Q, Z" :10} 
+dict2 = {1: "A, E, I, O, U, L, N, S, T, R", 
+         2: "D, G,", 
+         3: "B, C, M, P", 
+         4: "F, H, V, W, Y",
+         5: "K",
+         8: "J, X",
+         10: "Q, Z"} 
 print ('Insert a word:')
-word = input()
-list1 = []
-list1.extend(word)
-for letters in list1:
-    sum1 = [letters[dict2.values]]
-    print(sum1)
-
-# word = input()
-# def word_cost(word):
-#     total_cost = 0
-#     for characters in word:
-#         total_cost += word_cost.get(characters) 
-#     return total_cost
-
-# def get_cost(char):
-#     char_costs = {
-#         1: ["A, E, I, O, U, L, N, S, T, R"], 
-#         2: ["D, G"], 
-#         3: ["B, C, M, P"], 
-#         4: ["F, H, V, W, Y"],
-#         5: ["K"],
-#         8: ["J, X"],
-#         10: ["Q, Z"]
-#     }
-#     for cost in char_costs:
-#         if char in char_costs[cost]:
-#             return cost 
-#     return 0
-
-# print(word_cost)
+word = input().upper()
+sum1 = 0
+for letters in word:
+    if letters in 'QWERTYUIOPASDFGHJKLZXCVBNM':
+        for key in dict2:
+            if letters in dict2[key]:
+                sum1 += key
+print(sum1)
